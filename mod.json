@@ -1,0 +1,36 @@
+{
+    "Name": "lexi.noregsforslurslingers",
+    "Description": "I would want to call it lexi.systematicnoregs, but ryu had a better idea",
+    "Version": "1.0.0",
+    "Authors": [
+        "Lexiglasss"
+    ],
+    "Contacts": [
+        "dyslexi (Discord)"
+    ],
+    
+    "LoadPriority": 10,
+    "RequiredOnClient": false,
+    "ConVars": [
+        {
+            "Name": "systematicnoregsenabled",
+            "DefaultValue": "1"
+        }
+
+
+    ],
+    "Scripts": [
+        {
+            "Path": "lexisystematicnoregs.nut",
+            "RunOn": "SERVER",
+            "ServerCallback": {
+                "After": "Lexinoreginit"
+            }
+        },
+                {
+            "Path": "printtable.nut",
+            "RunOn": "SERVER"
+    
+        }
+    ]
+}
