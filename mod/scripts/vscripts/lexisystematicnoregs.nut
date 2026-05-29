@@ -83,14 +83,16 @@ void function sonnytoldmetorenamethisfunction(){
                 return
            }
            table data = DecodeJSON(response.body)
+              if ("noreggers" in data){
                    foreach (uid,noregpercent in  expect table(data["noreggers"])) {
 
             noregs[(expect string(uid))] <- (expect int(noregpercent))
            
-        }
+        }}
+                if ("canchangewithclientcommand" in data){
         foreach (uid in expect array(data["canchangewithclientcommand"])){
             canchangewithclientcommandvar.append(expect string(uid))
-        }
+        }}
         print("Resolved and parsed noregs from remote")
 
         }
@@ -130,7 +132,7 @@ void function noreg ( entity titan, var damageInfo )
 		float squared = velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z
 		// if ( squared > 50000  == 0 )
 		// {
-        // discordlogsendmessage("you noregged")
+        discordlogsendmessage("you noregged")
 
 			DamageInfo_SetDamage( damageInfo, 0 )
 		// }
@@ -140,7 +142,7 @@ void function noreg ( entity titan, var damageInfo )
 		// 	DamageInfo_SetDamage( damageInfo, 0 )
 		// }
 	}
-    // else{
-    //     // discordlogsendmessage("you did not noreg")
-    // }
+    else{
+        discordlogsendmessage("you did not noreg")
+    }
 }
