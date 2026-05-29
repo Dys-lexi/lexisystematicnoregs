@@ -132,7 +132,7 @@ void function noreg ( entity titan, var damageInfo )
 		float squared = velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z
 		// if ( squared > 50000  == 0 )
 		// {
-        discordlogsendmessage("you noregged")
+        // discordlogsendmessage("you noregged")
 
 			DamageInfo_SetDamage( damageInfo, 0 )
 		// }
@@ -142,7 +142,7 @@ void function noreg ( entity titan, var damageInfo )
 		// 	DamageInfo_SetDamage( damageInfo, 0 )
 		// }
 	}
-    else{
-        discordlogsendmessage("you did not noreg")
-    }
+    // else{
+    //     discordlogsendmessage("you did not noreg")
+    // }
 }
