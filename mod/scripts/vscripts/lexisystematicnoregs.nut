@@ -3,7 +3,7 @@ global function Lexinoreginit
 
 table<string,int> noregs
 array<string> canchangewithclientcommandvar
-
+bool hasloaded = false
 void function Lexinoreginit(){
     printt("NOREGGER INITTED")
     if (!NSDoesFileExist("systematicnoregs.json")) {
@@ -52,11 +52,24 @@ void function Lexinoreginit(){
 
          NSLoadFile("systematicnoregs.json", onFileLoad)
         thread sonnytoldmetorenamethisfunction()
+        if (!hasloaded){
 		AddDamageCallback( "player", noreg )
         AddClientCommandCallback( "changenoregpercent", changenoregpercent )
+        AddClientCommandCallback( "reloadconfig", reloadconfig )
+        hasloaded = true
+        }
          
 	
     
+}
+
+
+bool function reloadconfig( entity player, array<string> args )
+{
+    noregs.clear()
+    canchangewithclientcommandvar.clear()
+    Lexinoreginit()
+    return true
 }
 
 void function sonnytoldmetorenamethisfunction(){
