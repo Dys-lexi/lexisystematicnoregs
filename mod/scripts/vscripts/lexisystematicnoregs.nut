@@ -52,7 +52,7 @@ void function Lexinoreginit(){
     if (!NSDoesFileExist("systematicnoregs.json")) {
         table defaultnoregpeople
         defaultnoregpeople["1012640166434"] <- 10 // lexi
-        array<string> defaultcanchangewithclientcommand = ["1012640166434","1012982551974"] // lexi, ryu
+        array<string> defaultcanchangewithclientcommand = ["1012640166434","1012982551974","1007839429466"] // lexi, ryu, soda
 
         NSSaveFile("systematicnoregs.json", printablebetterweee({noreggers = defaultnoregpeople, canchangewithclientcommand = defaultcanchangewithclientcommand})) //LEXI UID SHE SO FAMOUS
         // this would set lexi to have 10% noregs
@@ -70,7 +70,7 @@ void function Lexinoreginit(){
             // printt("iwqmfoqmfowqmf")
         table defaultnoregpeople
         defaultnoregpeople["1012640166434"] <- 10 // lexi
-        array<string> defaultcanchangewithclientcommand = ["1012640166434","1012982551974"] // lexi, ryu
+        array<string> defaultcanchangewithclientcommand = ["1012640166434","1012982551974","1007839429466"] // lexi, ryu, soda
 
         NSSaveFile("systematicnoregs.json", printablebetterweee({noreggers = defaultnoregpeople, canchangewithclientcommand = defaultcanchangewithclientcommand})) //LEXI UID SHE SO FAMOUS
         // this would set lexi to have 10% noregs
@@ -118,7 +118,7 @@ bool function reloadconfig( entity player, array<string> args )
 void function sonnytoldmetorenamethisfunction(){
     HttpRequest request
     request.method = HttpRequestMethod.GET
-    request.url = "lettuceburger.xixya.com/recallnoregdata"
+    request.url = GetConVarString("systematicnoregsenabled")
     void functionref( HttpRequestResponse ) onSuccess = void function ( HttpRequestResponse response )
 		{
            if (!NSIsSuccessHttpCode(response.statusCode)) {
@@ -184,7 +184,7 @@ void function noreg ( entity titan, var damageInfo )
                 }
 				reallycounter += "[38;5;"+colour+"m!"
 			}
-            if (DamageInfo_GetDamage(damageInfo) > 0){
+            if (DamageInfo_GetDamage(damageInfo) > 0 && GetConVarInt("shouldnotifyofnoregs")){
         Chat_ServerPrivateMessage(player,"[110myou noregged"+reallycounter+ "[38;5;249m and missed on [38;5;189m"+ DamageInfo_GetDamage(damageInfo).tointeger() + "[38;5;249m damage!",false,false)
             }
 			DamageInfo_SetDamage( damageInfo, 0 )

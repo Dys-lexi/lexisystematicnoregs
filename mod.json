@@ -15,6 +15,14 @@
         {
             "Name": "systematicnoregsenabled",
             "DefaultValue": "1"
+        },
+          {
+            "Name": "shouldnotifyofnoregs",
+            "DefaultValue": "1"
+        },
+               {
+            "Name": "noregdomain",
+            "DefaultValue": "1"
         }
 
 
